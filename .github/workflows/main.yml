@@ -31,7 +31,7 @@ jobs:
       # Build and push the image to Container Registry
       - name: Build and Push container to registry
         run: |
-          docker build --file=taskapp/taskapp/Dockerfile -t sorenmaagaard/cuda-10.2-windows-ci:${{ github.sha }} .
+          docker build -t sorenmaagaard/cuda-10.2-windows-ci:${{ github.sha }} .
           docker push sorenmaagaard/cuda-10.2-windows-ci:${{ github.sha }}
       - name: Push container to registry as latest
         if: ${{ github.ref == 'ref/head/master' }}
